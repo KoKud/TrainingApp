@@ -1,0 +1,8 @@
+app-footer{
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    }
+.container{
+        background-image: url(..\assets\img\gym.jpg);
+    }

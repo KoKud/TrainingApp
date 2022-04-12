@@ -1,0 +1,45 @@
+
+    <mat-toolbar color="primary" class="toolbar">
+
+        <span class="TreningApp" >Trening App  </span>      
+        <span class="padding"></span>
+        
+        <button mat-stroked-button >
+          Treningi          
+        </button>
+        <button mat-stroked-button >
+          Ćwiczenia
+          
+        </button>
+      <span class="spacer"></span>
+
+
+      <button mat-stroked-button *ngIf="!logged">
+        Rejestracja
+        
+      </button>
+      
+      <button mat-stroked-button *ngIf="!logged">
+        Logowanie
+        <mat-icon>login</mat-icon>
+      </button>
+      
+      <button mat-stroked-button *ngIf="logged">
+        Ustawienia
+        <mat-icon>settings</mat-icon>
+      </button>
+
+      <button mat-stroked-button *ngIf="logged">
+        Konto
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <button mat-stroked-button *ngIf="logged">
+        Wyloguj
+        <mat-icon>logout</mat-icon>
+      </button>
+      
+      
+    </mat-toolbar>
+
+  
