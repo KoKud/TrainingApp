@@ -1,27 +1,26 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import {MatButtonModule} from '@angular/material/button';
 import { FooterComponent } from './footer/footer.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatListModule} from '@angular/material/list';
+import { HeaderComponent } from './header/header.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HistoryComponent } from './history/history.component';
+import { AboutComponent } from './about/about.component';
+import { WorkoutsComponent } from './workouts/workouts.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { WorkoutDetailsComponent } from './workouts/workout-details/workout-details.component';
+import { WorkoutEditComponent } from './workouts/workout-edit/workout-edit.component';
+import { HistoryDetailsComponent } from './history/history-details/history-details.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,ToolbarComponent, FooterComponent
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatListModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
