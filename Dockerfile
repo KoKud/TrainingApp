@@ -8,6 +8,10 @@ COPY package.json .
 
 RUN npm install
 
+RUN npm install --save bootstrap@5
+
+RUN npm i bootstrap-icons --save
+
 COPY . .
 
 EXPOSE 4200
