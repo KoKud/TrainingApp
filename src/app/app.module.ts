@@ -12,6 +12,7 @@ import { WorkoutDetailsComponent } from './workouts/workout-details/workout-deta
 import { WorkoutEditComponent } from './workouts/workout-edit/workout-edit.component';
 import { HistoryDetailsComponent } from './history/history-details/history-details.component';
 import { AppRoutingModule } from './app-routing.module';
+import { WorkoutService } from './workouts/workout.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [WorkoutService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
