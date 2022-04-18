@@ -1,3 +1,7 @@
 export class Workout {
-    constructor(public id: string, public name: string, public imageUrl: string){}
+  constructor(
+    public name: string,
+    public imageUrl: string,
+    public description: string
+  ) {}
 }

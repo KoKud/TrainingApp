@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Workout } from 'src/app/shared/workout.model';
+import { WorkoutService } from '../workout.service';
 
 @Component({
   selector: 'app-workout-details',
@@ -6,10 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workout-details.component.css']
 })
 export class WorkoutDetailsComponent implements OnInit {
+  workout!: Workout;
+  id!: string;
 
-  constructor() { }
+  constructor(private workoutService: WorkoutService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = params['id'];
+        this.workout = this.workoutService.getWorkout(this.id)!;
+      }
+    );
   }
 
 }

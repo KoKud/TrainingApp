@@ -1,25 +1,25 @@
 import { Workout } from "../shared/workout.model";
 
 export class WorkoutService {
-    private workouts: Workout[] = [
-        new Workout('001','Jumping Jacks','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('002','Wall Sit','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('003','Push Up','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('004','Abdominal Crunch','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('005','Step-Up onto Chair','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('006','Squat','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('007','Tricep Dip On Chair','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('008','Plank','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('009','High Knees Running In Place','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('010','Lunges','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('011','Push up and Rotation','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-        new Workout('012','Side Plank','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg'),
-    ];
+    private workouts: Map<string, Workout> = new Map<string, Workout>([
+        ['001', new Workout('Jumping Jacks','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['002', new Workout('Wall Sit','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+        ['003', new Workout('Push Up','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['004', new Workout('Abdominal Crunch','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+        ['005', new Workout('Step-Up onto Chair','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['006', new Workout('Squat','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+        ['007', new Workout('Tricep Dip On Chair','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['008', new Workout('Plank','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+        ['009', new Workout('High Knees Running In Place','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['010', new Workout('Lunges','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+        ['011', new Workout('Push up and Rotation','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
+        ['012', new Workout('Side Plank','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],
+    ]);
 
     getWorkouts(){
-        return this.workouts.slice();
+        return this.workouts;
     }
-    getWorkout(index: number){
-        return this.workouts[index];
+    getWorkout(index: string){
+        return this.workouts.get(index);
     }
 }
