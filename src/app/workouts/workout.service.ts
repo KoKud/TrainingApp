@@ -1,6 +1,8 @@
+import { Subject } from "rxjs";
 import { Workout } from "../shared/workout.model";
 
 export class WorkoutService {
+    workoutsChanged = new Subject<Map<string, Workout>>();
     private workouts: Map<string, Workout> = new Map<string, Workout>([
         ['001', new Workout('Jumping Jacks','https://cdn.pixabay.com/photo/2017/04/22/10/15/woman-2250970_960_720.jpg','Template description')],
         ['002', new Workout('Wall Sit','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg','Template description')],

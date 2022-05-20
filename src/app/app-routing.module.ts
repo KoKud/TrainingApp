@@ -5,6 +5,10 @@ import { HistoryDetailsComponent } from "./history/history-details/history-detai
 import { HistoryComponent } from "./history/history.component";
 import { HomePageComponent } from "./home-page/home-page.component";
 import { LeaderboardComponent } from "./leaderboard/leaderboard.component";
+import { StartNewTrainingComponent } from "./trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component";
+import { TrainingsDetailComponent } from "./trainings/trainings-list/trainings-detail/trainings-detail.component";
+import { TrainingsStartComponent } from "./trainings/trainings-list/trainings-start/trainings-start.component";
+import { TrainingsComponent } from "./trainings/trainings.component";
 import { WorkoutDetailsComponent } from "./workouts/workout-details/workout-details.component";
 import { WorkoutEditComponent } from "./workouts/workout-edit/workout-edit.component";
 import { WorkoutStartComponent } from "./workouts/workout-start/workout-start.component";
@@ -12,6 +16,11 @@ import { WorkoutsComponent } from "./workouts/workouts.component";
 
 const appRoutes : Routes = [
     {path: '', component: HomePageComponent},
+    {path: 'training', component: TrainingsComponent, children:[
+        {path: '', component: TrainingsStartComponent},
+        {path: ':id', component: TrainingsDetailComponent},
+        {path: ':id/start', component: StartNewTrainingComponent}
+    ]},
     {path: 'workouts', component: WorkoutsComponent, children:[
         {path: '', component: WorkoutStartComponent},
         {path: 'new', component: WorkoutEditComponent},
