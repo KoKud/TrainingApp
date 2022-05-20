@@ -16,17 +16,23 @@ import { WorkoutService } from './workouts/workout.service';
 import { WorkoutListComponent } from './workouts/workout-list/workout-list.component';
 import { WorkoutItemComponent } from './workouts/workout-list/workout-item/workout-item.component';
 import { WorkoutStartComponent } from './workouts/workout-start/workout-start.component';
+import { TrainingsComponent } from './trainings/trainings.component';
+import { TrainingsListComponent } from './trainings/trainings-list/trainings-list.component';
+import { TrainingsItemComponent } from './trainings/trainings-list/trainings-item/trainings-item.component';
+import { TrainingService } from './trainings/trainings.service';
+import { TrainingsDetailComponent } from './trainings/trainings-list/trainings-detail/trainings-detail.component';
+import { TrainingsStartComponent } from './trainings/trainings-list/trainings-start/trainings-start.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [WorkoutService],
+  providers: [WorkoutService, TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
