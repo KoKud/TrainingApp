@@ -22,11 +22,12 @@ import { TrainingsItemComponent } from './trainings/trainings-list/trainings-ite
 import { TrainingService } from './trainings/trainings.service';
 import { TrainingsDetailComponent } from './trainings/trainings-list/trainings-detail/trainings-detail.component';
 import { TrainingsStartComponent } from './trainings/trainings-list/trainings-start/trainings-start.component';
+import { StartNewTrainingComponent } from './trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent
   ],
   imports: [
     BrowserModule,
