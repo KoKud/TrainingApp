@@ -27,17 +27,29 @@ import { TrainingService } from './trainings/trainings.service';
 import { TrainingsDetailComponent } from './trainings/trainings-list/trainings-detail/trainings-detail.component';
 import { TrainingsStartComponent } from './trainings/trainings-list/trainings-start/trainings-start.component';
 import { StartNewTrainingComponent } from './trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component';
+<<<<<<< HEAD
 import { UserProfileComponent } from './leaderboard/user-profile/user-profile.component';
 import { HomePageLoggedComponent } from './home-page/home-page-logged/home-page-logged.component';
 import { HomePageLoggedOutComponent } from './home-page/home-page-logged-out/home-page-logged-out.component';
+=======
+import { SignInComponent } from './authentication/sign-in/sign-in.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+>>>>>>> fb7682b (Created new workout page what closes #21)
 
 
 @NgModule({
   declarations: [
+<<<<<<< HEAD
     AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, LeaderboardListComponent, LeaderboardItemComponent, LeaderboardDetailsComponent , TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent, UserProfileComponent, HomePageLoggedComponent, HomePageLoggedOutComponent
+=======
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent, SignInComponent, SignUpComponent
+>>>>>>> fb7682b (Created new workout page what closes #21)
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [WorkoutService, leaderboardService, TrainingService],

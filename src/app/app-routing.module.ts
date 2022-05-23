@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { AboutComponent } from "./about/about.component";
+import { SignInComponent } from "./authentication/sign-in/sign-in.component";
+import { SignUpComponent } from "./authentication/sign-up/sign-up.component";
 import { HistoryDetailsComponent } from "./history/history-details/history-details.component";
 import { HistoryComponent } from "./history/history.component";
 import { HomePageComponent } from "./home-page/home-page.component";
@@ -17,6 +19,8 @@ import { WorkoutsComponent } from "./workouts/workouts.component";
 
 const appRoutes : Routes = [
     {path: '', component: HomePageComponent},
+    {path: 'sign-in', component: SignInComponent},
+    {path: 'sign-up', component: SignUpComponent},
     {path: 'training', component: TrainingsComponent, children:[
         {path: '', component: TrainingsStartComponent},
         {path: ':id', component: TrainingsDetailComponent},

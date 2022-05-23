@@ -1,1 +1,70 @@
-<p>workout-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="workoutForm!" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            class="btn btn-success m-1"
+            type="submit"
+            [disabled]="!workoutForm!.valid"
+          >
+            Save
+          </button>
+          <button class="btn btn-danger m-1" type="button" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control"
+              formControlName="name"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input
+              type="text"
+              id="imagePath"
+              class="form-control"
+              formControlName="imageUrl"
+              #imagePath
+            />
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <img
+            [src]="imagePath.value"
+            class="img-responsive rounded-3"
+            style="max-height: 300px"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea
+              type="text"
+              id="description"
+              class="form-control"
+              formControlName="description"
+              rows="6"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
