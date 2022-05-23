@@ -20,17 +20,24 @@ import { WorkoutStartComponent } from './workouts/workout-start/workout-start.co
 import { LeaderboardListComponent } from './leaderboard/leaderboard-list/leaderboard-list.component';
 import { LeaderboardItemComponent } from './leaderboard/leaderboard-list/leaderboard-item/leaderboard-item.component';
 import { LeaderboardDetailsComponent } from './leaderboard/leaderboard-details/leaderboard-details.component';
+import { TrainingsComponent } from './trainings/trainings.component';
+import { TrainingsListComponent } from './trainings/trainings-list/trainings-list.component';
+import { TrainingsItemComponent } from './trainings/trainings-list/trainings-item/trainings-item.component';
+import { TrainingService } from './trainings/trainings.service';
+import { TrainingsDetailComponent } from './trainings/trainings-list/trainings-detail/trainings-detail.component';
+import { TrainingsStartComponent } from './trainings/trainings-list/trainings-start/trainings-start.component';
+import { StartNewTrainingComponent } from './trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, LeaderboardListComponent, LeaderboardItemComponent, LeaderboardDetailsComponent
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, LeaderboardListComponent, LeaderboardItemComponent, LeaderboardDetailsComponent , TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [WorkoutService, leaderboardService],
+  providers: [WorkoutService, leaderboardService, TrainingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
