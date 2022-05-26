@@ -1,6 +1,22 @@
   <div class="row">
-    <div class="col-xs-12">
-      <h4>Place Name Score</h4>
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="row">
+    
+          <div class="col-sm-2 pull-left">
+            <h4>Place</h4>
+          </div>
+    
+          <div class="col-sm-6 pull-left">
+            <h4>Name</h4>
+          </div>
+    
+          <div class="col-sm-4 pull-left">
+            <h4>Score</h4>
+          </div>
+    
+        </div>
+      </div>
       <app-leaderboard-item
         *ngFor="let leaderboardEl of leaderboards | keyvalue"
         [leaderboard]="leaderboardEl.value"
