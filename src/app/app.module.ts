@@ -28,11 +28,13 @@ import { TrainingsDetailComponent } from './trainings/trainings-list/trainings-d
 import { TrainingsStartComponent } from './trainings/trainings-list/trainings-start/trainings-start.component';
 import { StartNewTrainingComponent } from './trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component';
 import { UserProfileComponent } from './leaderboard/user-profile/user-profile.component';
+import { HomePageLoggedComponent } from './home-page/home-page-logged/home-page-logged.component';
+import { HomePageLoggedOutComponent } from './home-page/home-page-logged-out/home-page-logged-out.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, LeaderboardListComponent, LeaderboardItemComponent, LeaderboardDetailsComponent , TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent, UserProfileComponent
+    AppComponent, FooterComponent, HeaderComponent, HomePageComponent, HistoryComponent, AboutComponent, WorkoutsComponent, LeaderboardComponent, WorkoutDetailsComponent, WorkoutEditComponent, HistoryDetailsComponent, WorkoutListComponent, WorkoutItemComponent, WorkoutStartComponent, LeaderboardListComponent, LeaderboardItemComponent, LeaderboardDetailsComponent , TrainingsComponent, TrainingsListComponent, TrainingsItemComponent, TrainingsDetailComponent, TrainingsStartComponent, StartNewTrainingComponent, UserProfileComponent, HomePageLoggedComponent, HomePageLoggedOutComponent
   ],
   imports: [
     BrowserModule,

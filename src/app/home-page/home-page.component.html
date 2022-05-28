@@ -1,6 +1,6 @@
-<h1 class="class=display-1">Home-page Tab!</h1>
-<div class="row">
-    <div class="col-xs-12">
-        <button routerLink="/training"  class="btn btn-success">Start new training</button>
-    </div>
+<div *ngIf="logged; else elseBlock">
+    <app-home-page-logged [userName]="userName"></app-home-page-logged>
 </div>
+<ng-template #elseBlock>
+    <app-home-page-logged-out></app-home-page-logged-out>
+</ng-template>

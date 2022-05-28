@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
+  logged = true;
+  userName = "TestUser";
   constructor() { }
-
+  
   ngOnInit(): void {
+
   }
 
 }
