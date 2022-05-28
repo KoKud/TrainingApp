@@ -1,24 +1,91 @@
 <nav class="p-3 navbar-dark bg-dark">
   <div class="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-
-      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Web Trainer"><a routerLink="">
-        <image href="assets/img/logo.png" height="32" width="40"/>
-      </a></svg>
-      <a routerLink="" routerLinkActive = "text-secondary" [routerLinkActiveOptions]="{exact: true}" class="navbar-brand" href="#">Workapp</a>
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+    >
+      <svg
+        class="bi me-2"
+        width="40"
+        height="32"
+        role="img"
+        aria-label="Web Trainer"
+      >
+        <a routerLink="">
+          <image href="assets/img/logo.png" height="32" width="40" />
+        </a>
+      </svg>
+      <a
+        routerLink=""
+        routerLinkActive="text-secondary"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="navbar-brand"
+        href="#"
+        >Workapp</a
+      >
 
       <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
         <ul class="nav">
-          <li><a routerLink="/history" routerLinkActive = "text-secondary" class="nav-link px-2" style="color: white;"> History </a></li>
-          <li><a routerLink="/workouts" routerLinkActive = "text-secondary" class="nav-link px-2" style="color: white;"> Workouts </a></li>
-          <li><a routerLink="/leaderboard" routerLinkActive = "text-secondary" class="nav-link px-2" style="color: white;"> Leaderboard </a></li>
-          <li><a routerLink="/about-us" routerLinkActive = "text-secondary" class="nav-link px-2" style="color: white;"> About Us </a></li>
+          <li>
+            <a
+              routerLink="/history"
+              routerLinkActive="text-secondary"
+              class="nav-link px-2"
+              style="color: white"
+            >
+              History
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/workouts"
+              routerLinkActive="text-secondary"
+              class="nav-link px-2"
+              style="color: white"
+            >
+              Workouts
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/leaderboard"
+              routerLinkActive="text-secondary"
+              class="nav-link px-2"
+              style="color: white"
+            >
+              Leaderboard
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/about-us"
+              routerLinkActive="text-secondary"
+              class="nav-link px-2"
+              style="color: white"
+            >
+              About Us
+            </a>
+          </li>
         </ul>
       </div>
-      
+
       <div class="text-end">
-        <button type="button" class="btn btn-outline-light me-2">Login</button>
-        <button type="button" class="btn btn-warning">Sign-up</button>
+        <div *ngIf="!isAuthenticated">
+          <button
+            routerLink="/auth"
+            type="button"
+            class="btn btn-outline-light me-2"
+          >
+            Login
+          </button>
+          <button routerLink="/auth" type="button" class="btn btn-warning">
+            Sign-up
+          </button>
+        </div>
+        <div *ngIf="isAuthenticated">
+          <button routerLink="/auth" type="button" class="btn btn-warning">
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   </div>

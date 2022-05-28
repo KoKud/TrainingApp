@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Leaderboard } from '../../shared/leaderboard.model';
-import { leaderboardService } from '../leaderboard.service';
+import { LeaderboardService } from '../leaderboard.service';
 
 @Component({
   selector: 'app-leaderboard-details',
@@ -12,7 +12,7 @@ export class LeaderboardDetailsComponent implements OnInit {
   leaderboard!: Leaderboard;
   id!: string;
 
-  constructor(private leaderboardService: leaderboardService,
+  constructor(private leaderboardService: LeaderboardService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -23,5 +23,4 @@ export class LeaderboardDetailsComponent implements OnInit {
       }
     );
   }
-
 }

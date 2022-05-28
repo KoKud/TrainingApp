@@ -12,7 +12,7 @@ import { TrainingService } from '../../trainings.service';
 })
 export class TrainingsDetailComponent implements OnInit {
   training!: Training;
-  id!: string;
+  id!: number;
   workouts: Workout[] = [];
 
   constructor(private trainingService: TrainingService,
@@ -21,7 +21,7 @@ export class TrainingsDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
+        this.id = +params['id'];
         this.training = this.trainingService.getTraining(this.id)!;
         this.workouts = [];
         for(let workoutId of this.training.workouts){

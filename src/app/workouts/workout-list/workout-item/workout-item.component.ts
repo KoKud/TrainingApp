@@ -8,7 +8,7 @@ import { Workout } from 'src/app/shared/workout.model';
 })
 export class WorkoutItemComponent implements OnInit {
   @Input()workout!: Workout;
-  @Input() index!: string;
+  @Input() index!: number;
 
   constructor() { }
 

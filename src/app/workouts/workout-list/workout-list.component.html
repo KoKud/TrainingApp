@@ -1,15 +1,14 @@
 <div class="row">
-    <div class="col-xs-12 mt-1">
-      <button class="btn btn-primary btn-lg">New Workout</button>
+    <div class="col-xs-12 mt-3 mb-3">
+      <button routerLink="/workouts/new" class="btn btn-primary btn-lg" *ngIf="isAuthenticated">New Workout</button>
     </div>
   </div>
-  <hr />
   <div class="row">
     <div class="col-xs-12">
       <app-workout-item
-        *ngFor="let workoutEl of workouts | keyvalue"
-        [workout]="workoutEl.value"
-        [index]="workoutEl.key"
+        *ngFor="let workoutEl of workouts; let i = index "
+        [workout]="workoutEl"
+        [index]="i"
       ></app-workout-item>
     </div>
   </div>

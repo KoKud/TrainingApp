@@ -10,14 +10,14 @@ import { TrainingService } from "../trainings.service";
 })
 export class TrainingsListComponent implements OnInit {
   subscription!: Subscription;
-  trainings!: Map<string, Training>;
+  trainings!: Training[];
 
   constructor(private trainingService: TrainingService) {}
 
   ngOnInit(): void {
     this.trainings = this.trainingService.getTrainings();
     this.subscription = this.trainingService.trainingsChanged.subscribe(
-      (trainings: Map<string, Training>) => {
+      (trainings: Training[]) => {
         this.trainings = trainings;
       }
     );

@@ -3,7 +3,7 @@ export class Training {
       public name: string,
       public imageUrl: string,
       public description: string,
-      public workouts: string[],
+      public workouts: number[],
     ) {}
   }
   
