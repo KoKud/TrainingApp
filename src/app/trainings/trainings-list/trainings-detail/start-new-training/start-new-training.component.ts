@@ -23,7 +23,7 @@ export class StartNewTrainingComponent implements OnInit {
   isRestTime = true;
 
   training!: Training;
-  id!: string;
+  id!: number;
   workouts: Workout[] = [];
   currentWorkoutId = 0;
 
@@ -35,7 +35,7 @@ export class StartNewTrainingComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.id = params["id"];
+      this.id = +params["id"];
       this.training = this.trainingService.getTraining(this.id)!;
       this.workouts = [];
       for (let workoutId of this.training.workouts) {

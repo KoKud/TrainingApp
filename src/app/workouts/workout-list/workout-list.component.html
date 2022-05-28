@@ -6,9 +6,9 @@
   <div class="row">
     <div class="col-xs-12">
       <app-workout-item
-        *ngFor="let workoutEl of workouts | keyvalue"
-        [workout]="workoutEl.value"
-        [index]="workoutEl.key"
+        *ngFor="let workoutEl of workouts; let i = index "
+        [workout]="workoutEl"
+        [index]="i"
       ></app-workout-item>
     </div>
   </div>

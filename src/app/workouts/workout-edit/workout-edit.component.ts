@@ -10,7 +10,7 @@ import { WorkoutService } from '../workout.service';
   styleUrls: ['./workout-edit.component.css']
 })
 export class WorkoutEditComponent implements OnInit {
-  id?: string;
+  id?: number;
   editMode = false;
   workoutForm?: FormGroup;
   constructor(
@@ -21,7 +21,7 @@ export class WorkoutEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.id = params['id'];
+      this.id = +params['id'];
       this.editMode = params['id'] != null;
       this.initForm();
     });

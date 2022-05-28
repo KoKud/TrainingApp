@@ -10,7 +10,7 @@ import { WorkoutService } from "../workout.service";
 })
 export class WorkoutDetailsComponent implements OnInit {
   workout!: Workout;
-  id!: string;
+  id!: number;
 
   constructor(
     private workoutService: WorkoutService,

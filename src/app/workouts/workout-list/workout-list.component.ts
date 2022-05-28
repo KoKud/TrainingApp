@@ -9,14 +9,14 @@ import { WorkoutService } from "../workout.service";
   styleUrls: ["./workout-list.component.css"],
 })
 export class WorkoutListComponent implements OnInit {
-  workouts!: Map<string, Workout>;
+  workouts!: Workout[];
   subscription!: Subscription;
   constructor(private workoutService: WorkoutService) {}
 
   ngOnInit(): void {
     this.workouts = this.workoutService.getWorkouts();
     this.subscription = this.workoutService.workoutsChanged.subscribe(
-      (workouts: Map<string, Workout>) => {
+      (workouts: Workout[]) => {
         this.workouts = workouts;
       }
     );
