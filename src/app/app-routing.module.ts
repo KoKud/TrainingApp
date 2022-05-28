@@ -4,6 +4,7 @@ import { AboutComponent } from "./about/about.component";
 import { HistoryDetailsComponent } from "./history/history-details/history-details.component";
 import { HistoryComponent } from "./history/history.component";
 import { HomePageComponent } from "./home-page/home-page.component";
+import { LeaderboardDetailsComponent } from "./leaderboard/leaderboard-details/leaderboard-details.component";
 import { LeaderboardComponent } from "./leaderboard/leaderboard.component";
 import { StartNewTrainingComponent } from "./trainings/trainings-list/trainings-detail/start-new-training/start-new-training.component";
 import { TrainingsDetailComponent } from "./trainings/trainings-list/trainings-detail/trainings-detail.component";
@@ -30,7 +31,9 @@ const appRoutes : Routes = [
     {path: 'history', component: HistoryComponent, children:[
         {path: ':id', component: HistoryDetailsComponent}
     ]},
-    {path: 'leaderboard', component:  LeaderboardComponent},
+    {path: 'leaderboard', component:  LeaderboardComponent, children:[
+        {path: ':id', component: LeaderboardDetailsComponent},
+    ]},
     {path: 'about-us', component: AboutComponent}
 ]
 
