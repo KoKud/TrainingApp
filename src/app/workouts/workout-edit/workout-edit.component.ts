@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { Workout } from 'src/app/shared/workout.model';
 import { WorkoutService } from '../workout.service';
 
@@ -17,6 +18,7 @@ export class WorkoutEditComponent implements OnInit {
     private route: ActivatedRoute,
     private workoutService: WorkoutService,
     private router: Router,
+    private dataStorageService: DataStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,7 @@ export class WorkoutEditComponent implements OnInit {
     }else{
       this.workoutService.addWorkout(this.workoutForm!.value);
     }
+    this.dataStorageService.storeWorkouts();
     this.onCancel();
   }
 
