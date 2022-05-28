@@ -4,6 +4,7 @@ import { exhaustMap, map, take, tap } from "rxjs";
 import { AuthService } from "../auth/auth.service";
 import { TrainingService } from "../trainings/trainings.service";
 import { WorkoutService } from "../workouts/workout.service";
+import { Training } from "./training.model";
 import { Workout } from "./workout.model";
 
 @Injectable({ providedIn: "root" })
@@ -42,6 +43,39 @@ export class DataStorageService {
       .pipe(
         tap((workouts) => {
           this.workoutService.setWorkouts(workouts);
+        })
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+  storeTrainings() {
+    const trainings = this.trainigService.getTrainings();
+    this.authService.user
+      .pipe(
+        take(1),
+        exhaustMap((user) => {
+          return this.http.put(
+            "https://workout-app-r-default-rtdb.firebaseio.com/trainings.json",
+            trainings,
+            {
+              params: new HttpParams().set("auth", user.token!),
+            }
+          );
+        })
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+  fetchTrainings() {
+    this.http
+      .get<Training[]>(
+        "https://workout-app-r-default-rtdb.firebaseio.com/trainings.json"
+      )
+      .pipe(
+        tap((trainings) => {
+          this.trainigService.setTrainings(trainings);
         })
       )
       .subscribe((response) => {

@@ -13,5 +13,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataStorageService.fetchWorkouts();
+    this.dataStorageService.fetchTrainings();
   }
 }
