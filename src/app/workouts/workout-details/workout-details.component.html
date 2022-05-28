@@ -10,8 +10,8 @@
 </div>
 <hr>
 <div class="d-flex  justify-content-end">
-  <button routerLink="edit" class="btn btn-success m-1">Edit Workout</button>
-  <button (click)="onDeleteWorkout()" class="btn btn-danger m-1">Remove Workout</button>
+  <button routerLink="edit" class="btn btn-success m-1" *ngIf="isAuthenticated">Edit Workout</button>
+  <button (click)="onDeleteWorkout()" class="btn btn-danger m-1" *ngIf="isAuthenticated">Remove Workout</button>
 </div>
 <div class="row p-3">
   <div class="col-xs-12">

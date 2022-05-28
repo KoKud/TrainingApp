@@ -1,6 +1,6 @@
 import { Leaderboard } from "../shared/leaderboard.model";
 
-export class leaderboardService {
+export class LeaderboardService {
     private leaderboards: Map<string, Leaderboard> = new Map<string, Leaderboard>([
         ['001', new Leaderboard(1,'user','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg',11111111122)],
         ['002', new Leaderboard(2,'user','https://cdn.pixabay.com/photo/2015/02/19/03/31/man-641691_960_720.jpg',112)],

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-xs-12 mt-3 mb-3">
-      <button routerLink="/workouts/new" class="btn btn-primary btn-lg">New Workout</button>
+      <button routerLink="/workouts/new" class="btn btn-primary btn-lg" *ngIf="isAuthenticated">New Workout</button>
     </div>
   </div>
   <div class="row">
