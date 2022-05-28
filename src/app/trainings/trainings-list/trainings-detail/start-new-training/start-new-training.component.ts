@@ -16,6 +16,7 @@ export class StartNewTrainingComponent implements OnInit {
   private practiseTime = 30;
   private restTime = 15;
   private tick = 1000;
+  private isDetailSaved = false;
 
   counter = 15;
   displayProgress = 100;
@@ -44,7 +45,7 @@ export class StartNewTrainingComponent implements OnInit {
     });
     this.startWorkout();
   }
-  startWorkout() {
+  private startWorkout() {
     this.countDown = timer(0, this.tick).subscribe(() => {
       if (this.workouts.length > this.currentWorkoutId) {
         if (this.counter == 0 && !this.isRestTime) {
@@ -60,7 +61,14 @@ export class StartNewTrainingComponent implements OnInit {
         --this.counter;
         var maxTimeValue = this.isRestTime ? this.restTime : this.practiseTime;
         this.displayProgress = (this.counter / maxTimeValue) * 100;
+      } else {
+        this.saveWorkoutDetails();
       }
     });
+  }
+  private saveWorkoutDetails() {
+    if (this.isDetailSaved) return;
+    ///TODO saving workout details
+    this.isDetailSaved = true;
   }
 }

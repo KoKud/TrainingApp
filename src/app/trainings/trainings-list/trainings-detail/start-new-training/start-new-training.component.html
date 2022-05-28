@@ -1,3 +1,4 @@
+<div *ngIf="this.workouts.length > this.currentWorkoutId">
 <div class="col-xs-12">
   <img
     *ngIf="isRestTime"
@@ -33,4 +34,8 @@
   <h1>{{ workouts[currentWorkoutId].name }}</h1>
   <h2>Description:</h2>
   <h3>{{ workouts[currentWorkoutId].description }}</h3>
+</div>
+</div>
+<div *ngIf="this.workouts.length <= this.currentWorkoutId">
+  <h1>Congratulations your workout is done!!!</h1>
 </div>
