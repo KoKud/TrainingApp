@@ -1,5 +1,5 @@
-<div *ngIf="logged; else elseBlock">
-    <app-home-page-logged [userName]="userName"></app-home-page-logged>
+<div *ngIf="isAuthenticated; else elseBlock">
+    <app-home-page-logged [email]="email"></app-home-page-logged>
 </div>
 <ng-template #elseBlock>
     <app-home-page-logged-out></app-home-page-logged-out>
