@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HomePageLoggedComponent implements OnInit {
 
   constructor() { }
-  @Input() userName = "";
+  @Input() email = "";
   ngOnInit(): void {
   }
 
