@@ -2,8 +2,10 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { exhaustMap, map, take, tap } from "rxjs";
 import { AuthService } from "../auth/auth.service";
+import { LeaderboardService } from "../leaderboard/leaderboard.service";
 import { TrainingService } from "../trainings/trainings.service";
 import { WorkoutService } from "../workouts/workout.service";
+import { Leaderboard } from "./leaderboard.model";
 import { Training } from "./training.model";
 import { Workout } from "./workout.model";
 
@@ -13,6 +15,7 @@ export class DataStorageService {
     private http: HttpClient,
     private workoutService: WorkoutService,
     private trainigService: TrainingService,
+    private leaderboardService: LeaderboardService,
     private authService: AuthService
   ) {}
 
@@ -64,6 +67,46 @@ export class DataStorageService {
       )
       .subscribe((response) => {
         console.log(response);
+      });
+  }
+
+  addNewTraining(trainingNumber: number) {
+    this.authService.user
+      .pipe(
+        take(1),
+        exhaustMap((user) => {
+          user.trainings = user.trainings + 1;
+          user.trainingsList.push(trainingNumber);
+
+          return this.http.patch(
+            "https://workout-app-r-default-rtdb.firebaseio.com/users/" +
+              user.id +
+              ".json",
+            {
+              trainings: user.trainings,
+              trainingsList: user.trainingsList,
+            }
+          );
+        })
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+  getAllUsersData() {
+    var userDataSet: Leaderboard[] = [];
+    this.http
+      .get<Map<any, any>>(
+        "https://workout-app-r-default-rtdb.firebaseio.com/users.json"
+      )
+      .subscribe((response) => {
+        console.log(response);
+        console.log(typeof response);
+        const convertedMap = new Map(Object.entries(response));
+        convertedMap.forEach((value, key) => {         
+          userDataSet.push(new Leaderboard(value['name'], value['imageUrl'], value['trainings']));
+        });
+        this.leaderboardService.setLeaderboard(userDataSet);
       });
   }
 }

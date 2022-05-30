@@ -16,5 +16,6 @@ export class AppComponent implements OnInit {
     this.authService.autoLogin();
     this.dataStorageService.fetchWorkouts();
     this.dataStorageService.fetchTrainings();
+    this.dataStorageService.getAllUsersData();
   }
 }

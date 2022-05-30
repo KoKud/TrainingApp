@@ -3,6 +3,7 @@ import { DataStorageService } from '../shared/data-storage.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { AuthService } from '../auth/auth.service';
 import { User } from '../auth/user.model';
+import { LeaderboardService } from '../leaderboard/leaderboard.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -12,7 +13,7 @@ export class HomePageComponent implements OnInit {
   isAuthenticated = false;
   private userSub!: Subscription;
   email = "";
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private dataStorageService: DataStorageService) {}
   
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
@@ -22,6 +23,5 @@ export class HomePageComponent implements OnInit {
       this.isAuthenticated = !!user;
       this.email = user.email; 
     });
-  
   }
 }
