@@ -61,6 +61,11 @@ export class AuthService {
       );
   }
 
+  logout(){
+    this.user.next(null!);
+    
+  }
+
   private handleAunthentication(
     email: string,
     userId: string,
