@@ -26,14 +26,14 @@ import { StartNewTrainingComponent } from "./trainings/trainings-list/trainings-
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AuthComponent } from "./auth/auth.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { HomePageLoggedComponent } from "./home-page/home-page-logged/home-page-logged.component";
 import { HomePageLoggedOutComponent } from "./home-page/home-page-logged-out/home-page-logged-out.component";
 import { UserProfileComponent } from "./leaderboard/user-profile/user-profile.component";
 import { LeaderboardListComponent } from "./leaderboard/leaderboard-list/leaderboard-list.component";
 import { LeaderboardItemComponent } from "./leaderboard/leaderboard-list/leaderboard-item/leaderboard-item.component";
 import { LeaderboardService } from "./leaderboard/leaderboard.service";
-
+import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -59,15 +59,31 @@ import { LeaderboardService } from "./leaderboard/leaderboard.service";
     StartNewTrainingComponent,
     AuthComponent,
     LoadingSpinnerComponent,
-    HomePageLoggedComponent, 
+    HomePageLoggedComponent,
     HomePageLoggedOutComponent,
     LeaderboardComponent,
     UserProfileComponent,
     LeaderboardListComponent,
     LeaderboardItemComponent,
   ],
-  imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
-  providers: [WorkoutService, TrainingService, AuthComponent, LeaderboardService],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+  ],
+  providers: [
+    WorkoutService,
+    TrainingService,
+    AuthComponent,
+    LeaderboardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
