@@ -18,18 +18,10 @@ export class DataStorageService {
 
   storeWorkouts() {
     const workouts = this.workoutService.getWorkouts();
-    this.authService.user
-      .pipe(
-        take(1),
-        exhaustMap((user) => {
-          return this.http.put(
-            "https://workout-app-r-default-rtdb.firebaseio.com/workouts.json",
-            workouts,
-            {
-              params: new HttpParams().set("auth", user.token!),
-            }
-          );
-        })
+    this.http
+      .put(
+        "https://workout-app-r-default-rtdb.firebaseio.com/workouts.json",
+        workouts
       )
       .subscribe((response) => {
         console.log(response);
@@ -51,18 +43,10 @@ export class DataStorageService {
   }
   storeTrainings() {
     const trainings = this.trainigService.getTrainings();
-    this.authService.user
-      .pipe(
-        take(1),
-        exhaustMap((user) => {
-          return this.http.put(
-            "https://workout-app-r-default-rtdb.firebaseio.com/trainings.json",
-            trainings,
-            {
-              params: new HttpParams().set("auth", user.token!),
-            }
-          );
-        })
+    this.http
+      .put(
+        "https://workout-app-r-default-rtdb.firebaseio.com/trainings.json",
+        trainings
       )
       .subscribe((response) => {
         console.log(response);
