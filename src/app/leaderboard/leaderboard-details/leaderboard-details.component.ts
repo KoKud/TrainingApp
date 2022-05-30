@@ -10,7 +10,7 @@ import { LeaderboardService } from '../leaderboard.service';
 })
 export class LeaderboardDetailsComponent implements OnInit {
   leaderboard!: Leaderboard;
-  id!: string;
+  id!: number;
 
   constructor(private leaderboardService: LeaderboardService,
               private route: ActivatedRoute) { }
@@ -18,7 +18,7 @@ export class LeaderboardDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(
       (params: Params) => {
-        this.id = params['id'];
+        this.id = +params['id'];
         this.leaderboard = this.leaderboardService.getLeaderboard(this.id)!;
       }
     );

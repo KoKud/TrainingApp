@@ -18,9 +18,9 @@
         </div>
       </div>
       <app-leaderboard-item
-        *ngFor="let leaderboardEl of leaderboards | keyvalue"
-        [leaderboard]="leaderboardEl.value"
-        [index]="leaderboardEl.key"
+        *ngFor="let leaderboardEl of leaderboards ; let i = index"
+        [leaderboard]="leaderboardEl"
+        [index]="i"
       ></app-leaderboard-item>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Leaderboard } from '../../shared/leaderboard.model';
 import { LeaderboardService } from '../leaderboard.service';
 
@@ -8,12 +9,17 @@ import { LeaderboardService } from '../leaderboard.service';
   styleUrls: ['./leaderboard-list.component.css']
 })
 export class LeaderboardListComponent implements OnInit {
-  leaderboards!: Map<string, Leaderboard>;
+  leaderboards!: Leaderboard[];
+  subscription!: Subscription;
 
   constructor(private leaderboardService: LeaderboardService) { }
 
   ngOnInit(): void {
     this.leaderboards = this.leaderboardService.getLeaderboards();
+    this.subscription = this.leaderboardService.leaderboardChanged.subscribe(
+      (leader: Leaderboard[]) => {
+        this.leaderboards = leader;
+      }
+    );
   }
-
 }

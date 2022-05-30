@@ -8,7 +8,7 @@ import { Leaderboard } from '../../../shared/leaderboard.model';
 })
 export class LeaderboardItemComponent implements OnInit {
   @Input() leaderboard!: Leaderboard;
-  @Input() index!: string;
+  @Input() index!: number;
 
   constructor() { }
 
