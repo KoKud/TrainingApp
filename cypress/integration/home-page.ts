@@ -10,7 +10,9 @@ describe('Home-page', () => {
         cy.get('[type="submit"]').click();
       })
       it('Checks if it is authorized', () => {
-        cy.get('.display-4').contains('test@test.com');
+          
+        cy.get('.position-absolute > .btn').contains('Start new training');
+        cy.get('.text-end > div > .btn').contains('Logout');
         
       })
       it('Start training', () => {

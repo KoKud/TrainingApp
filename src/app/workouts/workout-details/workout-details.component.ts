@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 import { AuthService } from "src/app/auth/auth.service";
+import { DataStorageService } from "src/app/shared/data-storage.service";
 import { Workout } from "src/app/shared/workout.model";
 import { WorkoutService } from "../workout.service";
 
@@ -21,6 +22,7 @@ export class WorkoutDetailsComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
+    private dataStorageService: DataStorageService,
   ) {}
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
@@ -38,5 +40,6 @@ export class WorkoutDetailsComponent implements OnInit, OnDestroy {
   onDeleteWorkout() {
     this.workoutService.deleteWorkout(this.id);
     this.router.navigate(["../"], { relativeTo: this.route });
+    this.dataStorageService.storeWorkouts();
   }
 }
