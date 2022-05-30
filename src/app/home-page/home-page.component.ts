@@ -12,7 +12,7 @@ export class HomePageComponent implements OnInit {
   isAuthenticated = false;
   private userSub!: Subscription;
   email = "";
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private dataStorageService: DataStorageService) {}
   
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
@@ -22,6 +22,8 @@ export class HomePageComponent implements OnInit {
       this.isAuthenticated = !!user;
       this.email = user.email; 
     });
-  
+  }
+  Test(){
+    this.dataStorageService.addNewTraining(1);
   }
 }

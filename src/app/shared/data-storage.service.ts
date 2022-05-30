@@ -66,4 +66,31 @@ export class DataStorageService {
         console.log(response);
       });
   }
+
+  addNewTraining(trainingNumber: number) {
+    this.authService.user
+      .pipe(
+        take(1),
+        exhaustMap((user) => {
+          user.trainings = user.trainings+1;
+          user.trainingsList.push(trainingNumber);
+
+          return this.http.patch(
+            "https://workout-app-r-default-rtdb.firebaseio.com/users/" +
+              user.id +
+              ".json",
+            {
+              trainings: user.trainings,
+              trainingsList: user.trainingsList,
+            }
+          );
+        }),
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+  getAllUsersData(){
+
+  }
 }

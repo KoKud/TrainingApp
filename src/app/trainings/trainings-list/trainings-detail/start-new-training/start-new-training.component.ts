@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Params } from "@angular/router";
 import { Subscription, timer } from "rxjs";
+import { DataStorageService } from "src/app/shared/data-storage.service";
 import { Training } from "src/app/shared/training.model";
 import { Workout } from "src/app/shared/workout.model";
 import { TrainingService } from "src/app/trainings/trainings.service";
@@ -30,7 +31,8 @@ export class StartNewTrainingComponent implements OnInit {
   constructor(
     private trainingService: TrainingService,
     private workoutService: WorkoutService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageService,
   ) {}
 
   ngOnInit(): void {
@@ -68,7 +70,7 @@ export class StartNewTrainingComponent implements OnInit {
   }
   private saveWorkoutDetails() {
     if (this.isDetailSaved) return;
-    ///TODO saving workout details
+    this.dataStorageService.addNewTraining(this.id);
     this.isDetailSaved = true;
   }
 }
