@@ -32,6 +32,9 @@ describe('Workouts', () => {
         cy.get('.btn-danger').click();
         cy.get(' .list-group-item').contains('Some new Test Training').should('not.exist');
       })
-
+      it('Logout', () => {
+        cy.get('.text-end > div > .btn').click();
+        
+      })
 })
   
