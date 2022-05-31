@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable, take } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
 
 @Component({
@@ -9,13 +9,24 @@ import { AuthResponseData, AuthService } from './auth.service';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
 
   isLoginMode = true;
   isLoading = false;
   error: string = null!;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute ) {}
+
+  ngOnInit(): void {
+    this.route.params.pipe(take(1)).
+    subscribe(
+      (params: Params) => {
+        if(params['type'] === 'signup') {
+          this.isLoginMode = false;
+        }
+      }
+    );
+  }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
