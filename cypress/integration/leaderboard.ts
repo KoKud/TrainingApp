@@ -1,10 +1,10 @@
-describe('About', () => {
-    it('Visit about', () => {
-        cy.visit('/about-us')
-        cy.get('.position-absolute > .btn').contains('Join us now!');
+describe('Leaderboards', () => {
+    it('Visit leaderboard', () => {
+        cy.visit('/leaderboard')
+        cy.get('.col-sm-12 > :nth-child(1) > .row > .col-sm-2 > h4').contains('Place');
       })
     it('Authorization', () => {
-        cy.get('.position-absolute > .btn').click();
+        cy.get('.btn-outline-light').click();
         cy.get('#email').type('test@test.com');
         cy.get('#password').type('tester');
         cy.get('[type="submit"]').click();
@@ -16,12 +16,14 @@ describe('About', () => {
         cy.get('.text-end > div > .btn').contains('Logout');
         
       })
-      it('Back to About us', () => {
-        cy.get(':nth-child(4) > .nav-link').click();
+      it('Back to leaderboard', () => {
+        cy.get(':nth-child(3) > .nav-link').click();
         
       })
       it('Logout', () => {
-        cy.get('.text-end > div > .btn').click();
+        cy.get('.btn').click();
         
       })
+
+
 })

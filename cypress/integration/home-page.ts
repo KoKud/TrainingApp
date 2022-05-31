@@ -21,4 +21,8 @@ describe('Home-page', () => {
         cy.get('[ng-reflect-index="0"] > .list-group-item').click();
         cy.get('.col-xs-2 > .btn').click();
       })
+      it('Logout', () => {
+        cy.get('.text-end > div > .btn').click();
+        
+      })
 })
