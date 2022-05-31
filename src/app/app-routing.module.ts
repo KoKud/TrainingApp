@@ -19,7 +19,8 @@ import { WorkoutsComponent } from "./workouts/workouts.component";
 
 const appRoutes: Routes = [
   { path: "", component: HomePageComponent },
-  { path: "auth", component: AuthComponent },
+  { path: "auth", component: AuthComponent},
+  { path: "auth/:type", component: AuthComponent},
   {
     path: "training",
     canActivate: [AuthGuard],
