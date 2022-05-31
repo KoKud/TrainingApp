@@ -7,19 +7,31 @@ name: Deploy to Firebase Hosting on merge
     branches:
       - master
 jobs:
-  test_build_and_deploy:
+cypress-run:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-          uses: actions/checkout@v2
-        # Install NPM dependencies, cache them correctly
-        # and run all Cypress tests
-        - name: Cypress run
-          uses: cypress-io/github-action@v2
-          with:
-            build: npm run build
-            start: npm start
-    - name: Deployment
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          build: npm run build
+          start: npm start
+      - name: Deployment
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
