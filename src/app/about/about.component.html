@@ -12,8 +12,8 @@
     </div>
          
     <div class="join-us box">
-        <div class="position-absolute top-50 start-50 translate-middle">
-            <button routerLink="/auth" type="button" class="btn btn-warning fs-1 ">Join us now!</button>
+        <div *ngIf="!isAuthenticated" class="position-absolute top-50 start-50 translate-middle">
+            <button routerLink="/auth/signup" type="button" class="btn btn-warning fs-1 ">Join us now!</button>
         </div>
     </div>
 

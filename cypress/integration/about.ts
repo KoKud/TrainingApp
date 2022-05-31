@@ -4,7 +4,7 @@ describe('About', () => {
         cy.get('.position-absolute > .btn').contains('Join us now!');
       })
     it('Authorization', () => {
-        cy.get('.position-absolute > .btn').click();
+        cy.get('.btn-outline-light').click();
         cy.get('#email').type('test@test.com');
         cy.get('#password').type('tester');
         cy.get('[type="submit"]').click();
