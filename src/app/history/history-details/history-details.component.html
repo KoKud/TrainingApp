@@ -1,1 +1,9 @@
-<p>history-details works!</p>
+<div class="row">
+    <div class="col-xs-12">
+      <app-history-item
+        *ngFor="let historyEl of history | keyvalue"
+        [history]="historyEl.value"
+        [index]="historyEl.key"
+      ></app-history-item>
+    </div>
+  </div>
