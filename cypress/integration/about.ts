@@ -17,7 +17,7 @@ describe('About', () => {
         
       })
       it('Back to About us', () => {
-        cy.get(':nth-child(4) > .nav-link').click();
+        cy.get(':nth-child(3) > .nav-link').click();
         
       })
       it('Logout', () => {

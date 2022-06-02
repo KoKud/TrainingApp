@@ -17,7 +17,7 @@ describe('Leaderboards', () => {
         
       })
       it('Back to leaderboard', () => {
-        cy.get(':nth-child(3) > .nav-link').click();
+        cy.get(':nth-child(2) > .nav-link').click();
         
       })
       it('Logout', () => {

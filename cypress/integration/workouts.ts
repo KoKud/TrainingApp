@@ -17,7 +17,7 @@ describe('Workouts', () => {
         
       })
       it('Create new workout', () => {
-        cy.get(':nth-child(2) > .nav-link').click();
+        cy.get(':nth-child(1) > .nav-link').click();
         cy.get('.col-xs-12 > .btn').click();
         cy.get('#name').type('Some Test Training');
         cy.get('#imagePath').type('https://cdn.pixabay.com/photo/2016/12/04/22/15/fitness-1882721_960_720.jpg');
