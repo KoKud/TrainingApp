@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../../../auth/auth.service';
+import { User } from '../../../auth/user.model';
 import { Training } from '../../../shared/training.model';
 import { Workout } from '../../../shared/workout.model';
 import { TrainingService } from '../../../trainings/trainings.service';
 import { WorkoutService } from '../../../workouts/workout.service';
-import { HistoryService } from '../../history.service';
-import { History } from '../../../shared/history.model';
+
 
 @Component({
   selector: 'app-history-about',
@@ -14,14 +16,17 @@ import { History } from '../../../shared/history.model';
 })
 export class HistoryAboutComponent implements OnInit {
   training!: Training;
-  history!: History;
-  id!: string;
+  
+  id!: number;
   workouts: Workout[] = [];
+  user!: User;
+  private userSub!: Subscription;
 
   constructor(private trainingService: TrainingService,
     private workoutService: WorkoutService,
-    private historyService: HistoryService,
-    private route: ActivatedRoute) { }
+   
+    private route: ActivatedRoute,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     
@@ -29,11 +34,15 @@ export class HistoryAboutComponent implements OnInit {
 
       (params: Params) => {
         
-        this.id = params['id'];
-        this.history = this.historyService.getHistory(this.id)!;
-        this.training = this.history.training;
+        this.id = +params['id'];
+        this.userSub = this.authService.user.subscribe(user => {
+          this.user = user;
+          
+        });
+        this.id=this.user.trainingsList[this.id];
+        this.training = this.trainingService.getTraining(this.id)!;
         this.workouts = [];
-        for(let workoutId of this.history.training.workouts){
+        for(let workoutId of this.training.workouts){
           this.workouts.push(this.workoutService.getWorkout(workoutId)!);
         }
       }

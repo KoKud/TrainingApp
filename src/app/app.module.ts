@@ -36,7 +36,7 @@ import { LeaderboardService } from "./leaderboard/leaderboard.service";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
 import { HistoryItemComponent } from './history/history-details/history-item/history-item.component';
 import { HistoryAboutComponent } from './history/history-details/history-about/history-about.component';
-import { HistoryService } from "./history/history.service";
+
 
 @NgModule({
   declarations: [
@@ -83,7 +83,6 @@ import { HistoryService } from "./history/history.service";
     TrainingService,
     AuthComponent,
     LeaderboardService,
-    HistoryService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,

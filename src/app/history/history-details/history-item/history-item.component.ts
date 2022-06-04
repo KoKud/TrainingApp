@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { History } from '../../../shared/history.model';
+
+import { Training } from '../../../shared/training.model';
 
 @Component({
   selector: 'app-history-item',
@@ -7,8 +8,8 @@ import { History } from '../../../shared/history.model';
   styleUrls: ['./history-item.component.css']
 })
 export class HistoryItemComponent implements OnInit {
-  @Input()history!: History;
-  @Input() index!: string;
+  @Input()training!: Training;
+  @Input() index!: number;
   constructor() { }
 
   ngOnInit(): void {
